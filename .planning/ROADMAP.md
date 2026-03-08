@@ -30,12 +30,12 @@ Decimal phases appear between their surrounding integers in numeric order.
   3. Lab staff can log out from any page and are redirected to the login screen
   4. All database queries are scoped to the authenticated lab's ID — a staff member from Lab A cannot see Lab B's data
   5. All UI text visible to users is in Spanish
-**Plans**: TBD
+**Plans**: 3 plans
 
 Plans:
-- [ ] 01-01: Next.js 15 project scaffold, Supabase project, Drizzle schema + migrations
-- [ ] 01-02: Supabase Auth integration, registration flow, login/logout, session persistence
-- [ ] 01-03: RLS policies for all tables, basic dashboard shell (authenticated layout)
+- [ ] 01-01-PLAN.md — Next.js 15 scaffold, Drizzle schema, dependencies, Spanish landing page
+- [ ] 01-02-PLAN.md — Supabase Auth: registration flow, login, logout, session middleware
+- [ ] 01-03-PLAN.md — RLS policies for all tables, authenticated dashboard shell with sidebar + logout
 
 ### Phase 2: Core CRUD
 **Goal**: Lab staff can manage the full patient and order workflow up to the point of validation
