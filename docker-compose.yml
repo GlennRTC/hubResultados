@@ -1,0 +1,23 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    ports:
+      - "3000:3000"
+    volumes:
+      # Bind-mount the project so edits on the host reflect instantly
+      - .:/app
+      # Named volume for node_modules — keeps them INSIDE the container only
+      - node_modules:/app/node_modules
+    env_file:
+      - .env.local
+    environment:
+      - NODE_ENV=development
+      # Required for hot reload in Docker on some systems (e.g. WSL2)
+      - WATCHPACK_POLLING=true
+    # --hostname 0.0.0.0 makes Next.js listen on all interfaces (required in Docker)
+    command: ["npm", "run", "dev", "--", "--hostname", "0.0.0.0"]
+
+volumes:
+  node_modules:
