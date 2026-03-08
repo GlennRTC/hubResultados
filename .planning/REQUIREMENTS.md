@@ -63,8 +63,8 @@
 
 ### Infrastructure & Launch
 
-- [ ] **INFRA-01**: All patient and lab data is isolated per tenant via Supabase Row Level Security
-- [ ] **INFRA-02**: All UI copy is in Spanish (es) — no i18n framework needed
+- [x] **INFRA-01**: All patient and lab data is isolated per tenant via Supabase Row Level Security
+- [x] **INFRA-02**: All UI copy is in Spanish (es) — no i18n framework needed
 - [ ] **INFRA-03**: Patient portal is mobile-first and works on cheap Android phones (Chrome, Firefox)
 - [ ] **INFRA-04**: Landing page with product value proposition and registration CTA
 - [ ] **INFRA-05**: Application is deployed to Vercel + Supabase free tier (target < $5/month total)
@@ -118,8 +118,8 @@
 | AUTH-02 | Phase 1 | Pending |
 | AUTH-03 | Phase 1 | Pending |
 | AUTH-04 | Phase 1 | Pending |
-| INFRA-01 | Phase 1 | Pending |
-| INFRA-02 | Phase 1 | Pending |
+| INFRA-01 | Phase 1 | Complete |
+| INFRA-02 | Phase 1 | Complete |
 | PAT-01 | Phase 2 | Pending |
 | PAT-02 | Phase 2 | Pending |
 | PAT-03 | Phase 2 | Pending |
