@@ -33,8 +33,8 @@ Decimal phases appear between their surrounding integers in numeric order.
 **Plans**: 3 plans
 
 Plans:
-- [ ] 01-01-PLAN.md — Next.js 15 scaffold, Drizzle schema, dependencies, Spanish landing page
-- [ ] 01-02-PLAN.md — Supabase Auth: registration flow, login, logout, session middleware
+- [x] 01-01-PLAN.md — Next.js 15 scaffold, Drizzle schema, dependencies, Spanish landing page
+- [x] 01-02-PLAN.md — Supabase Auth: registration flow, login, logout, session middleware
 - [ ] 01-03-PLAN.md — RLS policies for all tables, authenticated dashboard shell with sidebar + logout
 
 ### Phase 2: Core CRUD
@@ -116,7 +116,7 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Foundation | 1/3 | In Progress|  |
+| 1. Foundation | 2/3 | In Progress|  |
 | 2. Core CRUD | 0/3 | Not started | - |
 | 3. Delivery | 0/4 | Not started | - |
 | 4. Polish | 0/3 | Not started | - |

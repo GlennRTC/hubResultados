@@ -7,10 +7,10 @@
 
 ### Authentication
 
-- [ ] **AUTH-01**: Lab staff can register a new laboratory account (self-service: name, email, password → creates laboratory + admin user)
-- [ ] **AUTH-02**: Lab staff can log in with email and password (Supabase Auth)
-- [ ] **AUTH-03**: Lab staff can log out from any page
-- [ ] **AUTH-04**: Lab staff session persists across browser refresh
+- [x] **AUTH-01**: Lab staff can register a new laboratory account (self-service: name, email, password → creates laboratory + admin user)
+- [x] **AUTH-02**: Lab staff can log in with email and password (Supabase Auth)
+- [x] **AUTH-03**: Lab staff can log out from any page
+- [x] **AUTH-04**: Lab staff session persists across browser refresh
 
 ### Patients
 

@@ -2,16 +2,16 @@
 gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
-status: planning
-stopped_at: Completed 01-foundation/01-01-PLAN.md
-last_updated: "2026-03-08T15:55:16.291Z"
-last_activity: 2026-03-08 — Roadmap created; requirements mapped across 5 phases
+status: in-progress
+stopped_at: Completed 01-foundation/01-02-PLAN.md
+last_updated: "2026-03-08T15:58:48Z"
+last_activity: 2026-03-08 — Completed auth flows (Supabase SSR, login, register, middleware)
 progress:
   total_phases: 5
   completed_phases: 0
   total_plans: 3
-  completed_plans: 1
-  percent: 33
+  completed_plans: 2
+  percent: 67
 ---
 
 # Project State
@@ -26,11 +26,11 @@ See: .planning/PROJECT.md (updated 2026-03-08)
 ## Current Position
 
 Phase: 1 of 5 (Foundation)
-Plan: 0 of 3 in current phase
-Status: Ready to plan
-Last activity: 2026-03-08 — Roadmap created; requirements mapped across 5 phases
+Plan: 2 of 3 in current phase
+Status: In progress
+Last activity: 2026-03-08 — Completed auth flows (Supabase SSR, login, register, middleware)
 
-Progress: [███░░░░░░░] 33%
+Progress: [██████░░░░] 67%
 
 ## Performance Metrics
 
@@ -50,7 +50,8 @@ Progress: [███░░░░░░░] 33%
 - Trend: -
 
 *Updated after each plan completion*
-| Phase 01-foundation P01 | 4 | 4 tasks | 27 files |
+| Phase 01-foundation P01 | 4 min | 4 tasks | 27 files |
+| Phase 01-foundation P02 | 2 min | 3 tasks | 10 files |
 
 ## Accumulated Context
 
@@ -67,6 +68,10 @@ Recent decisions affecting current work:
 - [Phase 01-foundation]: node_modules live in Docker named volume — nothing installed on host machine
 - [Phase 01-foundation]: prepare:false on postgres-js required for Supabase Transaction mode pooler (port 6543)
 - [Phase 01-foundation]: Separate DATABASE_URL (pooler, port 6543) vs DATABASE_URL_DIRECT (session, port 5432) for runtime vs Drizzle Kit migrations
+- [Phase 01-02 auth]: Error messages passed via redirect URL params — no client-side auth state needed
+- [Phase 01-02 auth]: Middleware redirects both unauthenticated /dashboard/* → /login and authenticated /login|/register → /dashboard
+- [Phase 01-02 auth]: Registration sequence: signUp auth user → insert laboratories → insert lab_users (authUserId needed for FK)
+- [Phase 01-02 auth]: setAll() in server.ts wrapped in try/catch — Server Components have read-only cookies; middleware handles refresh
 
 ### Pending Todos
 
@@ -78,6 +83,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-03-08T15:55:16.280Z
-Stopped at: Completed 01-foundation/01-01-PLAN.md
+Last session: 2026-03-08T15:58:48Z
+Stopped at: Completed 01-foundation/01-02-PLAN.md
 Resume file: None
