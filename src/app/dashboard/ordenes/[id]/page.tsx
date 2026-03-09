@@ -2,11 +2,12 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getLabUser } from "@/lib/auth/get-lab-user";
 import { db } from "@/lib/db";
-import { orders, orderItems, patients, labUsers } from "@/lib/db/schema";
+import { orders, orderItems, patients, labUsers, notifications } from "@/lib/db/schema";
 import { eq, and } from "drizzle-orm";
 import { ResultItemsForm } from "@/components/result-items-form";
 import { PdfUpload } from "@/components/pdf-upload";
-import { validateOrderAction } from "./actions";
+import { validateAndSendAction } from "./actions";
+import { DeliveryStatusBadge } from "@/components/delivery-status-badge";
 
 interface PageProps {
   params: Promise<{ id: string }>;
@@ -92,6 +93,15 @@ export default async function OrdenDetailPage({ params }: PageProps) {
     .from(orderItems)
     .where(eq(orderItems.orderId, order.id))
     .orderBy(orderItems.createdAt);
+
+  // DEL-05: Fetch latest notification status for real-time badge
+  const notificationRows = await db
+    .select({ status: notifications.status })
+    .from(notifications)
+    .where(eq(notifications.orderId, order.id))
+    .orderBy(notifications.createdAt)
+    .limit(1);
+  const notificationStatus = notificationRows[0]?.status ?? null;
 
   return (
     <div className="py-8 px-4 max-w-3xl mx-auto">
@@ -223,7 +233,7 @@ export default async function OrdenDetailPage({ params }: PageProps) {
         )}
       </div>
 
-      {/* Acciones section */}
+      {/* Acciones section — pending order */}
       {order.status === "pending" && (
         <div className="bg-white rounded-lg border border-gray-200 shadow-sm p-6">
           <h2 className="text-lg font-semibold text-gray-900 mb-4">Acciones</h2>
@@ -235,7 +245,7 @@ export default async function OrdenDetailPage({ params }: PageProps) {
 
           <div>
             <h3 className="text-sm font-medium text-gray-700 mb-2">Validación</h3>
-            <form action={validateOrderAction}>
+            <form action={validateAndSendAction}>
               <input type="hidden" name="orderId" value={order.id} />
               <button
                 type="submit"
@@ -248,13 +258,17 @@ export default async function OrdenDetailPage({ params }: PageProps) {
         </div>
       )}
 
+      {/* Acciones section — validated/delivered order */}
       {order.status !== "pending" && (
         <div className="bg-white rounded-lg border border-gray-200 shadow-sm p-6">
-          <h2 className="text-lg font-semibold text-gray-900 mb-2">Acciones</h2>
-          <div className="flex items-center gap-2">
+          <h2 className="text-lg font-semibold text-gray-900 mb-4">Acciones</h2>
+          <div className="flex items-center gap-3">
             <span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-green-100 text-green-800">
               Orden validada
             </span>
+            {notificationStatus && (
+              <DeliveryStatusBadge orderId={order.id} initialStatus={notificationStatus} />
+            )}
           </div>
           {validatorName && order.validatedAt && (
             <p className="text-sm text-gray-600 mt-2">

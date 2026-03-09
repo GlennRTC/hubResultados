@@ -1,8 +1,9 @@
 import Link from "next/link";
 import { getLabUser } from "@/lib/auth/get-lab-user";
 import { db } from "@/lib/db";
-import { orders, patients } from "@/lib/db/schema";
+import { orders, patients, notifications } from "@/lib/db/schema";
 import { eq, and, gte, inArray, desc } from "drizzle-orm";
+import { DeliveryStatusBadge } from "@/components/delivery-status-badge";
 
 interface PageProps {
   searchParams: Promise<{ estado?: string }>;
@@ -70,6 +71,19 @@ export default async function OrdenesPage({ searchParams }: PageProps) {
     patientRows.map((p) => [p.id, `${p.firstName} ${p.lastName}`])
   );
 
+  // DEL-05: Fetch notification statuses for all orders in this lab — no N+1
+  const notifRows = await db
+    .select({ orderId: notifications.orderId, status: notifications.status })
+    .from(notifications)
+    .where(eq(notifications.laboratoryId, lab.id))
+    .orderBy(notifications.createdAt);
+
+  // Build a map: orderId → latest status (last write wins — rows ordered by createdAt)
+  const notifMap = new Map<string, "pending" | "sent" | "delivered" | "read" | "failed">();
+  for (const n of notifRows) {
+    notifMap.set(n.orderId, n.status);
+  }
+
   const tabs = [
     { label: "Todos", href: "/dashboard/ordenes", key: undefined },
     { label: "Hoy", href: "/dashboard/ordenes?estado=hoy", key: "hoy" },
@@ -135,27 +149,34 @@ export default async function OrdenesPage({ searchParams }: PageProps) {
               </tr>
             </thead>
             <tbody className="bg-white divide-y divide-gray-200">
-              {orderRows.map((o) => (
-                <tr key={o.id} className="hover:bg-gray-50 transition-colors">
-                  <td className="px-6 py-4 whitespace-nowrap">
-                    <Link
-                      href={`/dashboard/ordenes/${o.id}`}
-                      className="text-sm font-medium text-blue-600 hover:text-blue-800"
-                    >
-                      {o.orderNumber}
-                    </Link>
-                  </td>
-                  <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
-                    {patientMap[o.patientId] ?? "—"}
-                  </td>
-                  <td className="px-6 py-4 whitespace-nowrap">
-                    <StatusBadge status={o.status} />
-                  </td>
-                  <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                    {new Date(o.createdAt).toLocaleDateString("es-CO")}
-                  </td>
-                </tr>
-              ))}
+              {orderRows.map((o) => {
+                const notifStatus = notifMap.get(o.id);
+                return (
+                  <tr key={o.id} className="hover:bg-gray-50 transition-colors">
+                    <td className="px-6 py-4 whitespace-nowrap">
+                      <Link
+                        href={`/dashboard/ordenes/${o.id}`}
+                        className="text-sm font-medium text-blue-600 hover:text-blue-800"
+                      >
+                        {o.orderNumber}
+                      </Link>
+                    </td>
+                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                      {patientMap[o.patientId] ?? "—"}
+                    </td>
+                    <td className="px-6 py-4 whitespace-nowrap">
+                      {notifStatus ? (
+                        <DeliveryStatusBadge orderId={o.id} initialStatus={notifStatus} />
+                      ) : (
+                        <StatusBadge status={o.status} />
+                      )}
+                    </td>
+                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                      {new Date(o.createdAt).toLocaleDateString("es-CO")}
+                    </td>
+                  </tr>
+                );
+              })}
             </tbody>
           </table>
         </div>
