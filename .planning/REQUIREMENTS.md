@@ -30,21 +30,21 @@
 
 ### Delivery
 
-- [ ] **DEL-01**: System generates a branded PDF from result items (lab logo, patient info, results table, validated-by footer, QR code)
-- [ ] **DEL-02**: PDFs are stored in Supabase Storage with signed URLs (1-hour expiry, no public access)
-- [ ] **DEL-03**: Patient receives a WhatsApp template message on validation (Meta Cloud API direct, template: `resultado_listo`, < 5s from click)
-- [ ] **DEL-04**: Webhook handler processes WhatsApp delivery + read receipts (sent → delivered → read)
-- [ ] **DEL-05**: Lab dashboard shows real-time delivery status per order
+- [x] **DEL-01**: System generates a branded PDF from result items (lab logo, patient info, results table, validated-by footer, QR code)
+- [x] **DEL-02**: PDFs are stored in Supabase Storage with signed URLs (1-hour expiry, no public access)
+- [x] **DEL-03**: Patient receives a WhatsApp template message on validation (Meta Cloud API direct, template: `resultado_listo`, < 5s from click)
+- [x] **DEL-04**: Webhook handler processes WhatsApp delivery + read receipts (sent → delivered → read)
+- [x] **DEL-05**: Lab dashboard shows real-time delivery status per order
 - [ ] **DEL-06**: Lab staff can resend a notification for failed or undelivered results
 
 ### Patient Portal
 
-- [ ] **PORTAL-01**: Patient can open a result via unique secure link (`/r/{verification_code}`)
-- [ ] **PORTAL-02**: Patient authenticates by entering document type + document number + date of birth (no account or password)
-- [ ] **PORTAL-03**: Patient can view their result PDF in the browser (embedded viewer)
-- [ ] **PORTAL-04**: Patient can download their result PDF
-- [ ] **PORTAL-05**: Portal enforces rate limiting (max 5 auth attempts per verification_code per hour; 1-hour lockout after that)
-- [ ] **PORTAL-06**: QR verification page (`/verify/{verification_code}`) confirms result authenticity for anyone scanning the QR
+- [x] **PORTAL-01**: Patient can open a result via unique secure link (`/r/{verification_code}`)
+- [x] **PORTAL-02**: Patient authenticates by entering document type + document number + date of birth (no account or password)
+- [x] **PORTAL-03**: Patient can view their result PDF in the browser (embedded viewer)
+- [x] **PORTAL-04**: Patient can download their result PDF
+- [x] **PORTAL-05**: Portal enforces rate limiting (max 5 auth attempts per verification_code per hour; 1-hour lockout after that)
+- [x] **PORTAL-06**: QR verification page (`/verify/{verification_code}`) confirms result authenticity for anyone scanning the QR
 
 ### Lab Management
 
@@ -68,8 +68,8 @@
 - [ ] **INFRA-03**: Patient portal is mobile-first and works on cheap Android phones (Chrome, Firefox)
 - [ ] **INFRA-04**: Landing page with product value proposition and registration CTA
 - [ ] **INFRA-05**: Application is deployed to Vercel + Supabase free tier (target < $5/month total)
-- [ ] **INFRA-06**: Input validation via Zod on all forms and API routes
-- [ ] **INFRA-07**: PDF size < 500KB (optimized for LATAM mobile data)
+- [x] **INFRA-06**: Input validation via Zod on all forms and API routes
+- [x] **INFRA-07**: PDF size < 500KB (optimized for LATAM mobile data)
 
 ## v2 Requirements
 
@@ -130,18 +130,18 @@
 | ORD-04 | Phase 2 | Complete |
 | ORD-05 | Phase 2 | Complete |
 | ORD-06 | Phase 2 | Complete |
-| DEL-01 | Phase 3 | Pending |
-| DEL-02 | Phase 3 | Pending |
-| DEL-03 | Phase 3 | Pending |
-| DEL-04 | Phase 3 | Pending |
-| DEL-05 | Phase 3 | Pending |
+| DEL-01 | Phase 3 | Complete |
+| DEL-02 | Phase 3 | Complete |
+| DEL-03 | Phase 3 | Complete |
+| DEL-04 | Phase 3 | Complete |
+| DEL-05 | Phase 3 | Complete |
 | DEL-06 | Phase 4 | Pending |
-| PORTAL-01 | Phase 3 | Pending |
-| PORTAL-02 | Phase 3 | Pending |
-| PORTAL-03 | Phase 3 | Pending |
-| PORTAL-04 | Phase 3 | Pending |
-| PORTAL-05 | Phase 3 | Pending |
-| PORTAL-06 | Phase 3 | Pending |
+| PORTAL-01 | Phase 3 | Complete |
+| PORTAL-02 | Phase 3 | Complete |
+| PORTAL-03 | Phase 3 | Complete |
+| PORTAL-04 | Phase 3 | Complete |
+| PORTAL-05 | Phase 3 | Complete |
+| PORTAL-06 | Phase 3 | Complete |
 | LAB-01 | Phase 4 | Pending |
 | LAB-02 | Phase 4 | Pending |
 | LAB-03 | Phase 4 | Pending |
@@ -154,8 +154,8 @@
 | INFRA-03 | Phase 5 | Pending |
 | INFRA-04 | Phase 5 | Pending |
 | INFRA-05 | Phase 5 | Pending |
-| INFRA-06 | Phase 3 | Pending |
-| INFRA-07 | Phase 3 | Pending |
+| INFRA-06 | Phase 3 | Complete |
+| INFRA-07 | Phase 3 | Complete |
 
 **Coverage:**
 - v1 requirements: 38 total

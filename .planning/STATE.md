@@ -3,14 +3,14 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: executing
-stopped_at: Completed 03-delivery/03-01-PLAN.md
-last_updated: "2026-03-09T19:55:52.807Z"
+stopped_at: Completed 03-delivery/03-00-PLAN.md
+last_updated: "2026-03-09T20:04:58.698Z"
 last_activity: 2026-03-09 — Completed order CRUD (createOrderAction, order list with filter tabs, order detail with patient/validator info)
 progress:
   total_phases: 5
   completed_phases: 2
   total_plans: 11
-  completed_plans: 7
+  completed_plans: 8
   percent: 33
 ---
 
@@ -57,6 +57,7 @@ Progress: [███░░░░░░░] 33%
 | Phase 02-core-crud P02 | 3 min | 3 tasks | 5 files |
 | Phase 02-core-crud P03 | 20 | 3 tasks | 4 files |
 | Phase 03-delivery P01 | 14 min | 2 tasks | 5 files |
+| Phase 03-delivery P00 | 24 | 3 tasks | 11 files |
 
 ## Accumulated Context
 
@@ -91,6 +92,8 @@ Recent decisions affecting current work:
 - [Phase 02-core-crud]: Phase 2 PDF upload stores pending-upload/{filename} placeholder only — Supabase Storage deferred to Phase 3
 - [Phase 03-delivery]: generate-pdf.tsx uses .tsx extension — JSX syntax requires tsx; jest config uses jsx:react mode so React must be explicitly imported
 - [Phase 03-delivery]: upload-pdf.ts uses getAdminClient() factory (not module-level singleton) to avoid env var access at import time
+- [Phase 03-delivery]: Incremental Drizzle migration: mark 0000 baseline as applied, run 0001 with Phase 3 DDL only (DB already had Phase 1/2 tables from direct SQL seeding)
+- [Phase 03-delivery]: Storage results bucket and Realtime ALTER PUBLICATION deferred as manual steps — service role key not available in Docker container env
 
 ### Pending Todos
 
@@ -102,6 +105,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-03-09T19:55:52.791Z
-Stopped at: Completed 03-delivery/03-01-PLAN.md
+Last session: 2026-03-09T20:04:58.678Z
+Stopped at: Completed 03-delivery/03-00-PLAN.md
 Resume file: None
