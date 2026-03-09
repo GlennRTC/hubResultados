@@ -90,3 +90,48 @@ export const orderItems = pgTable("order_items", {
 });
 export type OrderItem = typeof orderItems.$inferSelect;
 export type NewOrderItem = typeof orderItems.$inferInsert;
+
+// --- Phase 3: Delivery tables ---
+
+export const notificationStatusEnum = pgEnum("notification_status", [
+  "pending", "sent", "delivered", "read", "failed",
+]);
+export const notificationChannelEnum = pgEnum("notification_channel", ["whatsapp"]);
+
+export const notifications = pgTable("notifications", {
+  id: uuid("id").primaryKey().defaultRandom(),
+  orderId: uuid("order_id")
+    .notNull()
+    .references(() => orders.id, { onDelete: "cascade" }),
+  laboratoryId: uuid("laboratory_id")
+    .notNull()
+    .references(() => laboratories.id, { onDelete: "cascade" }),
+  channel: notificationChannelEnum("channel").notNull().default("whatsapp"),
+  status: notificationStatusEnum("status").notNull().default("pending"),
+  whatsappMessageId: text("whatsapp_message_id"),
+  createdAt: timestamp("created_at", { withTimezone: true }).notNull().defaultNow(),
+  updatedAt: timestamp("updated_at", { withTimezone: true }).notNull().defaultNow(),
+});
+export type Notification = typeof notifications.$inferSelect;
+export type NewNotification = typeof notifications.$inferInsert;
+
+export const portalAuthAttempts = pgTable("portal_auth_attempts", {
+  id: uuid("id").primaryKey().defaultRandom(),
+  verificationCode: text("verification_code").notNull(),
+  attemptedAt: timestamp("attempted_at", { withTimezone: true })
+    .notNull()
+    .defaultNow(),
+});
+
+export const auditLog = pgTable("audit_log", {
+  id: uuid("id").primaryKey().defaultRandom(),
+  laboratoryId: uuid("laboratory_id")
+    .notNull()
+    .references(() => laboratories.id, { onDelete: "cascade" }),
+  userId: uuid("user_id").references(() => labUsers.id),
+  action: text("action").notNull(),
+  targetId: text("target_id"),
+  ipAddress: text("ip_address"),
+  userAgent: text("user_agent"),
+  createdAt: timestamp("created_at", { withTimezone: true }).notNull().defaultNow(),
+});
