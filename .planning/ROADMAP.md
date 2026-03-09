@@ -48,12 +48,12 @@ Plans:
   4. Lab staff can enter individual result items (test name, value, unit, reference range, flag) on an order detail page
   5. Lab staff can upload a PDF directly to an order as an alternative to manual result entry (drag and drop)
   6. Lab staff can trigger "Validate and Send" on an order, which locks the order and records who validated it and when
-**Plans**: TBD
+**Plans**: 3 plans
 
 Plans:
-- [ ] 02-01: Patient CRUD (create, search, list, detail, history) with RLS enforcement
-- [ ] 02-02: Order CRUD (create, list with filters, detail view)
-- [ ] 02-03: Result item entry form, PDF upload (drag and drop), and "Validate & Send" action
+- [ ] 02-01-PLAN.md — Patient CRUD (create, search, list, detail, history) with RLS enforcement
+- [ ] 02-02-PLAN.md — Order CRUD (create, list with filters, detail view)
+- [ ] 02-03-PLAN.md — Result item entry form, PDF upload (drag and drop), and "Validar y Enviar" action
 
 ### Phase 3: Delivery
 **Goal**: Validated orders automatically generate a PDF, send a WhatsApp message, and expose a patient portal so the patient can view their result
