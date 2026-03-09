@@ -3,15 +3,15 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: executing
-stopped_at: Completed 02-core-crud/02-01-PLAN.md
-last_updated: "2026-03-09T16:30:31Z"
-last_activity: 2026-03-09 — Completed patients schema (3 tables + enums), SQL migration, patient CRUD (list, create, detail)
+stopped_at: Completed 02-core-crud/02-02-PLAN.md
+last_updated: "2026-03-09T16:36:04Z"
+last_activity: 2026-03-09 — Completed order CRUD (create form, list with filter tabs, detail page)
 progress:
   total_phases: 5
   completed_phases: 1
   total_plans: 4
-  completed_plans: 4
-  percent: 27
+  completed_plans: 5
+  percent: 33
 ---
 
 # Project State
@@ -21,16 +21,16 @@ progress:
 See: .planning/PROJECT.md (updated 2026-03-08)
 
 **Core value:** When a lab technician validates results, the patient instantly receives a WhatsApp message with a secure link to download their PDF — authenticated by ID number + date of birth.
-**Current focus:** Phase 1 — Foundation (complete); Phase 2 — Patients & Orders (next)
+**Current focus:** Phase 2 — Core CRUD (in progress); 02-01 patients done, 02-02 orders done, 02-03 result entry next
 
 ## Current Position
 
 Phase: 2 of 5 (Core CRUD) — IN PROGRESS
-Plan: 1 of 4 in current phase — COMPLETE (02-01 done)
-Status: Phase 2 executing; 02-01 patients done, 02-02 orders next
-Last activity: 2026-03-09 — Completed patients schema, SQL migration with RLS, patient list/create/detail pages
+Plan: 2 of 4 in current phase — COMPLETE (02-02 done)
+Status: Phase 2 executing; 02-01 patients done, 02-02 orders done, 02-03 result entry next
+Last activity: 2026-03-09 — Completed order CRUD (createOrderAction, order list with filter tabs, order detail with patient/validator info)
 
-Progress: [██░░░░░░░░] 27%
+Progress: [███░░░░░░░] 33%
 
 ## Performance Metrics
 
@@ -54,6 +54,7 @@ Progress: [██░░░░░░░░] 27%
 | Phase 01-foundation P02 | 2 min | 3 tasks | 10 files |
 | Phase 01-foundation P03 | 3 min | 3 tasks | 7 files |
 | Phase 02-core-crud P01 | 4 min | 3 tasks | 6 files |
+| Phase 02-core-crud P02 | 3 min | 3 tasks | 5 files |
 
 ## Accumulated Context
 
@@ -81,6 +82,9 @@ Recent decisions affecting current work:
 - [Phase 02-core-crud 02-01]: drizzle/ directory gitignored — migration files force-added with git add -f to preserve SQL artifacts in repo
 - [Phase 02-core-crud 02-01]: Every patient/order query double-scopes: laboratoryId WHERE clause even when patientId already implies a lab (belt-and-suspenders isolation)
 - [Phase 02-core-crud 02-01]: dateOfBirth stored as ISO text (YYYY-MM-DD) not DATE type — avoids TZ ambiguity, formatted at render with toLocaleDateString('es-CO')
+- [Phase 02-core-crud 02-02]: stdlib crypto.randomBytes(9).toString('base64url') used for verificationCode — nanoid in package.json but Docker volume not writable from host; functionally equivalent
+- [Phase 02-core-crud 02-02]: Patient ownership verified in createOrderAction before insert — prevents cross-lab patient ID injection via form POST
+- [Phase 02-core-crud 02-02]: Order detail has placeholder Resultados/Acciones sections as explicit extension points for Plan 02-03
 
 ### Pending Todos
 
@@ -92,6 +96,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-03-09T16:30:31Z
-Stopped at: Completed 02-core-crud/02-01-PLAN.md
+Last session: 2026-03-09T16:36:04Z
+Stopped at: Completed 02-core-crud/02-02-PLAN.md
 Resume file: None

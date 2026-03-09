@@ -21,9 +21,9 @@
 
 ### Orders
 
-- [ ] **ORD-01**: Lab staff can create a new order (select or create patient, enter order number)
-- [ ] **ORD-02**: Lab staff can view orders list with filters (today / pending / validated / delivered)
-- [ ] **ORD-03**: Lab staff can view order detail page
+- [x] **ORD-01**: Lab staff can create a new order (select or create patient, enter order number)
+- [x] **ORD-02**: Lab staff can view orders list with filters (today / pending / validated / delivered)
+- [x] **ORD-03**: Lab staff can view order detail page
 - [ ] **ORD-04**: Lab staff can enter result items per order (test name, value, unit, reference range, flag: normal/high/low/critical)
 - [ ] **ORD-05**: Lab staff can upload a PDF as alternative to manual result entry (drag & drop)
 - [ ] **ORD-06**: Lab staff can validate an order ("Validate & Send" action records who validated, when, and triggers delivery)
@@ -124,9 +124,9 @@
 | PAT-02 | Phase 2 | Complete |
 | PAT-03 | Phase 2 | Complete |
 | PAT-04 | Phase 2 | Complete |
-| ORD-01 | Phase 2 | Pending |
-| ORD-02 | Phase 2 | Pending |
-| ORD-03 | Phase 2 | Pending |
+| ORD-01 | Phase 2 | Complete |
+| ORD-02 | Phase 2 | Complete |
+| ORD-03 | Phase 2 | Complete |
 | ORD-04 | Phase 2 | Pending |
 | ORD-05 | Phase 2 | Pending |
 | ORD-06 | Phase 2 | Pending |
