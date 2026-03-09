@@ -14,10 +14,10 @@
 
 ### Patients
 
-- [ ] **PAT-01**: Lab staff can create a patient (document type, document number, first/last name, DOB, phone with country code)
-- [ ] **PAT-02**: Lab staff can search patients by name or document number
-- [ ] **PAT-03**: Lab staff can view patient history (all orders for a patient)
-- [ ] **PAT-04**: Patient records are isolated per lab (no cross-lab data leakage)
+- [x] **PAT-01**: Lab staff can create a patient (document type, document number, first/last name, DOB, phone with country code)
+- [x] **PAT-02**: Lab staff can search patients by name or document number
+- [x] **PAT-03**: Lab staff can view patient history (all orders for a patient)
+- [x] **PAT-04**: Patient records are isolated per lab (no cross-lab data leakage)
 
 ### Orders
 
@@ -120,10 +120,10 @@
 | AUTH-04 | Phase 1 | Pending |
 | INFRA-01 | Phase 1 | Complete |
 | INFRA-02 | Phase 1 | Complete |
-| PAT-01 | Phase 2 | Pending |
-| PAT-02 | Phase 2 | Pending |
-| PAT-03 | Phase 2 | Pending |
-| PAT-04 | Phase 2 | Pending |
+| PAT-01 | Phase 2 | Complete |
+| PAT-02 | Phase 2 | Complete |
+| PAT-03 | Phase 2 | Complete |
+| PAT-04 | Phase 2 | Complete |
 | ORD-01 | Phase 2 | Pending |
 | ORD-02 | Phase 2 | Pending |
 | ORD-03 | Phase 2 | Pending |

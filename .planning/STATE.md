@@ -3,15 +3,15 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: executing
-stopped_at: Completed 01-foundation/01-03-PLAN.md
-last_updated: "2026-03-08T16:06:43.117Z"
-last_activity: 2026-03-08 — Completed auth flows (Supabase SSR, login, register, middleware)
+stopped_at: Completed 02-core-crud/02-01-PLAN.md
+last_updated: "2026-03-09T16:30:31Z"
+last_activity: 2026-03-09 — Completed patients schema (3 tables + enums), SQL migration, patient CRUD (list, create, detail)
 progress:
   total_phases: 5
   completed_phases: 1
-  total_plans: 3
-  completed_plans: 3
-  percent: 67
+  total_plans: 4
+  completed_plans: 4
+  percent: 27
 ---
 
 # Project State
@@ -25,12 +25,12 @@ See: .planning/PROJECT.md (updated 2026-03-08)
 
 ## Current Position
 
-Phase: 1 of 5 (Foundation) — COMPLETE
-Plan: 3 of 3 in current phase — COMPLETE
-Status: Phase 1 complete, ready for Phase 2
-Last activity: 2026-03-08 — Completed RLS policies and dashboard shell (sidebar, header, getLabUser)
+Phase: 2 of 5 (Core CRUD) — IN PROGRESS
+Plan: 1 of 4 in current phase — COMPLETE (02-01 done)
+Status: Phase 2 executing; 02-01 patients done, 02-02 orders next
+Last activity: 2026-03-09 — Completed patients schema, SQL migration with RLS, patient list/create/detail pages
 
-Progress: [██████████] 100%
+Progress: [██░░░░░░░░] 27%
 
 ## Performance Metrics
 
@@ -52,7 +52,8 @@ Progress: [██████████] 100%
 *Updated after each plan completion*
 | Phase 01-foundation P01 | 4 min | 4 tasks | 27 files |
 | Phase 01-foundation P02 | 2 min | 3 tasks | 10 files |
-| Phase 01-foundation P03 | 3 | 3 tasks | 7 files |
+| Phase 01-foundation P03 | 3 min | 3 tasks | 7 files |
+| Phase 02-core-crud P01 | 4 min | 3 tasks | 6 files |
 
 ## Accumulated Context
 
@@ -77,6 +78,9 @@ Recent decisions affecting current work:
 - [Phase 01-foundation]: Custom sidebar built from scratch (not shadcn Sidebar component) — simpler for Phase 1 needs
 - [Phase 01-foundation]: getLabUser() reusable pattern: every dashboard Server Component calls this guard to verify session and load LabContext
 - [Phase 01-foundation]: DashboardHeader is a Client Component to support Radix DropdownMenu — Server Actions still work via form action prop in Client Components
+- [Phase 02-core-crud 02-01]: drizzle/ directory gitignored — migration files force-added with git add -f to preserve SQL artifacts in repo
+- [Phase 02-core-crud 02-01]: Every patient/order query double-scopes: laboratoryId WHERE clause even when patientId already implies a lab (belt-and-suspenders isolation)
+- [Phase 02-core-crud 02-01]: dateOfBirth stored as ISO text (YYYY-MM-DD) not DATE type — avoids TZ ambiguity, formatted at render with toLocaleDateString('es-CO')
 
 ### Pending Todos
 
@@ -88,6 +92,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-03-08T16:06:43.107Z
-Stopped at: Completed 01-foundation/01-03-PLAN.md
+Last session: 2026-03-09T16:30:31Z
+Stopped at: Completed 02-core-crud/02-01-PLAN.md
 Resume file: None
