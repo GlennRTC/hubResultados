@@ -3,14 +3,14 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: executing
-stopped_at: Completed 03-delivery/03-00-PLAN.md
-last_updated: "2026-03-09T20:04:58.698Z"
+stopped_at: Completed 03-delivery/03-02-PLAN.md
+last_updated: "2026-03-09T20:21:30.972Z"
 last_activity: 2026-03-09 — Completed order CRUD (createOrderAction, order list with filter tabs, order detail with patient/validator info)
 progress:
   total_phases: 5
   completed_phases: 2
   total_plans: 11
-  completed_plans: 8
+  completed_plans: 9
   percent: 33
 ---
 
@@ -58,6 +58,7 @@ Progress: [███░░░░░░░] 33%
 | Phase 02-core-crud P03 | 20 | 3 tasks | 4 files |
 | Phase 03-delivery P01 | 14 min | 2 tasks | 5 files |
 | Phase 03-delivery P00 | 24 | 3 tasks | 11 files |
+| Phase 03-delivery P02 | 9 | 2 tasks | 5 files |
 
 ## Accumulated Context
 
@@ -94,6 +95,9 @@ Recent decisions affecting current work:
 - [Phase 03-delivery]: upload-pdf.ts uses getAdminClient() factory (not module-level singleton) to avoid env var access at import time
 - [Phase 03-delivery]: Incremental Drizzle migration: mark 0000 baseline as applied, run 0001 with Phase 3 DDL only (DB already had Phase 1/2 tables from direct SQL seeding)
 - [Phase 03-delivery]: Storage results bucket and Realtime ALTER PUBLICATION deferred as manual steps — service role key not available in Docker container env
+- [Phase 03-delivery]: rawBody = req.text() first: consuming req.json() before HMAC breaks signature validation due to body stream exhaustion
+- [Phase 03-delivery]: Status ordinal gate: only update if new status ordinal > current; failed always overwrites — handles out-of-order Meta webhook delivery
+- [Phase 03-delivery]: DeliveryStatusBadge uses createClient() browser client for Realtime subscriptions
 
 ### Pending Todos
 
@@ -105,6 +109,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-03-09T20:04:58.678Z
-Stopped at: Completed 03-delivery/03-00-PLAN.md
+Last session: 2026-03-09T20:21:30.957Z
+Stopped at: Completed 03-delivery/03-02-PLAN.md
 Resume file: None
