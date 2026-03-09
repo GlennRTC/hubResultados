@@ -1,6 +1,6 @@
 "use client";
 import { useActionState } from "react";
-import { authenticateAndSetCookieAction } from "@/app/r/[verification_code]/actions";
+import { authenticateAndSetCookieAction } from "@/lib/portal/authenticate-action";
 
 interface Props {
   verificationCode: string;
