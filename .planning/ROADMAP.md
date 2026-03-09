@@ -13,7 +13,7 @@ LabFlash goes from zero to a production SaaS in five phases. Phase 1 establishes
 Decimal phases appear between their surrounding integers in numeric order.
 
 - [ ] **Phase 1: Foundation** - Multi-tenant Next.js + Supabase scaffold with auth and RLS
-- [ ] **Phase 2: Core CRUD** - Patient directory, orders, result entry, and PDF upload
+- [x] **Phase 2: Core CRUD** - Patient directory, orders, result entry, and PDF upload (completed 2026-03-09)
 - [ ] **Phase 3: Delivery** - PDF generation, WhatsApp sending, patient portal, and webhooks
 - [ ] **Phase 4: Polish** - Lab settings, staff management, analytics, audit log, plan limits, superadmin
 - [ ] **Phase 5: Launch** - Mobile hardening, landing page, and production deployment
@@ -117,7 +117,7 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
 | 1. Foundation | 2/3 | In Progress|  |
-| 2. Core CRUD | 2/3 | In Progress|  |
+| 2. Core CRUD | 3/3 | Complete   | 2026-03-09 |
 | 3. Delivery | 0/4 | Not started | - |
 | 4. Polish | 0/3 | Not started | - |
 | 5. Launch | 0/3 | Not started | - |

@@ -3,14 +3,14 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: executing
-stopped_at: Completed 02-core-crud/02-02-PLAN.md
-last_updated: "2026-03-09T16:36:04Z"
-last_activity: 2026-03-09 — Completed order CRUD (create form, list with filter tabs, detail page)
+stopped_at: Completed 02-core-crud/02-03-PLAN.md
+last_updated: "2026-03-09T17:14:31.754Z"
+last_activity: 2026-03-09 — Completed order CRUD (createOrderAction, order list with filter tabs, order detail with patient/validator info)
 progress:
   total_phases: 5
-  completed_phases: 1
-  total_plans: 4
-  completed_plans: 5
+  completed_phases: 2
+  total_plans: 6
+  completed_plans: 6
   percent: 33
 ---
 
@@ -55,6 +55,7 @@ Progress: [███░░░░░░░] 33%
 | Phase 01-foundation P03 | 3 min | 3 tasks | 7 files |
 | Phase 02-core-crud P01 | 4 min | 3 tasks | 6 files |
 | Phase 02-core-crud P02 | 3 min | 3 tasks | 5 files |
+| Phase 02-core-crud P03 | 20 | 3 tasks | 4 files |
 
 ## Accumulated Context
 
@@ -85,6 +86,8 @@ Recent decisions affecting current work:
 - [Phase 02-core-crud 02-02]: stdlib crypto.randomBytes(9).toString('base64url') used for verificationCode — nanoid in package.json but Docker volume not writable from host; functionally equivalent
 - [Phase 02-core-crud 02-02]: Patient ownership verified in createOrderAction before insert — prevents cross-lab patient ID injection via form POST
 - [Phase 02-core-crud 02-02]: Order detail has placeholder Resultados/Acciones sections as explicit extension points for Plan 02-03
+- [Phase 02-core-crud]: requirePendingOrder shared helper across all three Server Actions — single status guard, no duplication
+- [Phase 02-core-crud]: Phase 2 PDF upload stores pending-upload/{filename} placeholder only — Supabase Storage deferred to Phase 3
 
 ### Pending Todos
 
@@ -96,6 +99,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-03-09T16:36:04Z
-Stopped at: Completed 02-core-crud/02-02-PLAN.md
+Last session: 2026-03-09T17:14:31.741Z
+Stopped at: Completed 02-core-crud/02-03-PLAN.md
 Resume file: None
