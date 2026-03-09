@@ -67,13 +67,14 @@ Plans:
   5. After 5 failed authentication attempts on a result link, further attempts are blocked for one hour
   6. Anyone scanning the QR on a printed PDF can open `/verify/{verification_code}` and see confirmation that the result is authentic
   7. All form submissions and API routes validate input with Zod before processing
-**Plans**: TBD
+**Plans**: 5 plans
 
 Plans:
-- [ ] 03-01: PDF generation with @react-pdf/renderer (branded template, QR code, < 500KB), Supabase Storage upload, signed URL
-- [ ] 03-02: Meta Cloud API integration — send WhatsApp template on validation, webhook handler for delivery + read receipts
-- [ ] 03-03: Patient portal — `/r/{code}` auth flow, PDF viewer, download button, rate limiting, `/verify/{code}` authenticity page
-- [ ] 03-04: Zod validation on all forms and API routes; delivery status real-time update in dashboard
+- [ ] 03-00-PLAN.md — Wave 0: jest + ts-jest test infrastructure, 6 test stub files, DB schema extension (notifications, portalAuthAttempts, auditLog), Drizzle migration, Supabase Storage results bucket
+- [ ] 03-01-PLAN.md — PDF generation: @react-pdf/renderer branded template + QR code, Supabase Storage upload + signed URL helpers
+- [ ] 03-02-PLAN.md — WhatsApp integration: Meta Cloud API send function, webhook handler (GET + POST with HMAC + Zod), DeliveryStatusBadge with Supabase Realtime
+- [ ] 03-03-PLAN.md — Patient portal: /r/{code} auth flow + PDF viewer + download, /verify/{code} authenticity page, rate limiting via portalAuthAttempts table
+- [ ] 03-04-PLAN.md — End-to-end wiring: validateAndSendAction pipeline (PDF → Storage → WhatsApp → notifications → audit), delivery status in dashboard
 
 ### Phase 4: Polish
 **Goal**: Lab admins can configure their account, manage staff, monitor performance, and superadmins can operate the platform
@@ -118,6 +119,6 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5
 |-------|----------------|--------|-----------|
 | 1. Foundation | 2/3 | In Progress|  |
 | 2. Core CRUD | 3/3 | Complete   | 2026-03-09 |
-| 3. Delivery | 0/4 | Not started | - |
+| 3. Delivery | 0/5 | Not started | - |
 | 4. Polish | 0/3 | Not started | - |
 | 5. Launch | 0/3 | Not started | - |
