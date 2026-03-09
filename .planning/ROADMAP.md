@@ -14,7 +14,7 @@ Decimal phases appear between their surrounding integers in numeric order.
 
 - [ ] **Phase 1: Foundation** - Multi-tenant Next.js + Supabase scaffold with auth and RLS
 - [x] **Phase 2: Core CRUD** - Patient directory, orders, result entry, and PDF upload (completed 2026-03-09)
-- [ ] **Phase 3: Delivery** - PDF generation, WhatsApp sending, patient portal, and webhooks
+- [x] **Phase 3: Delivery** - PDF generation, WhatsApp sending, patient portal, and webhooks (completed 2026-03-09)
 - [ ] **Phase 4: Polish** - Lab settings, staff management, analytics, audit log, plan limits, superadmin
 - [ ] **Phase 5: Launch** - Mobile hardening, landing page, and production deployment
 
@@ -119,6 +119,6 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5
 |-------|----------------|--------|-----------|
 | 1. Foundation | 2/3 | In Progress|  |
 | 2. Core CRUD | 3/3 | Complete   | 2026-03-09 |
-| 3. Delivery | 4/5 | In Progress|  |
+| 3. Delivery | 5/5 | Complete   | 2026-03-09 |
 | 4. Polish | 0/3 | Not started | - |
 | 5. Launch | 0/3 | Not started | - |

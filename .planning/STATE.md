@@ -3,14 +3,14 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: executing
-stopped_at: Completed 03-delivery-03-03-PLAN.md
-last_updated: "2026-03-09T20:26:52.444Z"
+stopped_at: "Completed 03-04 Tasks 1-2; checkpoint:human-verify Task 3 pending approval"
+last_updated: "2026-03-09T20:50:14.613Z"
 last_activity: 2026-03-09 — Completed order CRUD (createOrderAction, order list with filter tabs, order detail with patient/validator info)
 progress:
   total_phases: 5
-  completed_phases: 2
+  completed_phases: 3
   total_plans: 11
-  completed_plans: 10
+  completed_plans: 11
   percent: 33
 ---
 
@@ -60,6 +60,7 @@ Progress: [███░░░░░░░] 33%
 | Phase 03-delivery P00 | 24 | 3 tasks | 11 files |
 | Phase 03-delivery P02 | 9 | 2 tasks | 5 files |
 | Phase 03-delivery P03 | 28 | 2 tasks | 10 files |
+| Phase 03-delivery P04 | 9 minutes | 2 tasks | 3 files |
 
 ## Accumulated Context
 
@@ -102,6 +103,8 @@ Recent decisions affecting current work:
 - [Phase 03-delivery]: Cookie-based session per verification_code: httpOnly cookie portal_{code}=verified, maxAge 3600s, avoids portal_sessions table complexity
 - [Phase 03-delivery]: Rate limit fail-open on DB error: checkRateLimit returns allowed:true if Supabase query fails, prevents DB errors from blocking legitimate patients
 - [Phase 03-delivery]: Generic error for all portal auth failures: Datos no coinciden returned regardless of which field is wrong
+- [Phase 03-delivery]: validateAndSendAction marks order validated before PDF/WhatsApp for idempotency guarantee
+- [Phase 03-delivery]: WhatsApp failure creates notifications row with status=failed — order stays validated, not delivered
 
 ### Pending Todos
 
@@ -113,6 +116,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-03-09T20:26:52.430Z
-Stopped at: Completed 03-delivery-03-03-PLAN.md
+Last session: 2026-03-09T20:50:14.597Z
+Stopped at: Completed 03-04 Tasks 1-2; checkpoint:human-verify Task 3 pending approval
 Resume file: None
