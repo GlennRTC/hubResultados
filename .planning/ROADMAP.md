@@ -88,12 +88,13 @@ Plans:
   5. When a free-plan lab reaches 30 validated results in the current month, further validation attempts are blocked and an upgrade prompt is shown
   6. Lab staff can retry sending a WhatsApp notification for an order that failed or was never delivered
   7. A superadmin can list all labs, view their notification logs, see platform-wide metrics, and delete a lab account
-**Plans**: TBD
+**Plans**: 4 plans
 
 Plans:
-- [ ] 04-01: Lab settings page (name, logo, WhatsApp config) and staff management (invite, roles, remove)
-- [ ] 04-02: Analytics panel, audit log viewer, resend failed notification
-- [ ] 04-03: Plan limits enforcement (free tier cap at 30/month) and superadmin panel
+- [ ] 04-00-PLAN.md — Wave 0: 7 test stub files (RED) for all Phase 4 requirements
+- [ ] 04-01-PLAN.md — Lab settings page (name, logo, WhatsApp config) and staff management (invite, roles, remove)
+- [ ] 04-02-PLAN.md — Analytics panel, audit log viewer, resend failed notification
+- [ ] 04-03-PLAN.md — Plan limits enforcement (free tier cap at 30/month) and superadmin panel
 
 ### Phase 5: Launch
 **Goal**: The application is production-ready — mobile-polished, publicly discoverable, and running on Vercel + Supabase free tier
