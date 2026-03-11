@@ -26,8 +26,9 @@ export async function createOrderAction(formData: FormData) {
     redirect("/dashboard/ordenes/nueva?error=paciente_no_encontrado");
   }
 
-  // Use stdlib crypto fallback (nanoid listed in package.json for future container install)
-  const verificationCode = crypto.randomBytes(9).toString("base64url");
+  const verificationCode = Buffer.from(
+    crypto.getRandomValues(new Uint8Array(9))
+  ).toString("base64url");
 
   const [newOrder] = await db
     .insert(orders)

@@ -1,0 +1,26 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(node \"./.claude/get-shit-done/bin/gsd-tools.cjs\" commit \"docs: initialize project\" --files .planning/PROJECT.md)",
+      "Bash(git config user.email \"glenn.r.tomassi@gmail.com\" && git config user.name \"GlennRTC\")",
+      "Bash(node \"./.claude/get-shit-done/bin/gsd-tools.cjs\" commit \"chore: add project config\" --files .planning/config.json)",
+      "Bash(node \"./.claude/get-shit-done/bin/gsd-tools.cjs\" commit \"docs: define v1 requirements\" --files .planning/REQUIREMENTS.md)",
+      "Bash(node \"./.claude/get-shit-done/bin/gsd-tools.cjs\" commit \"docs: create roadmap \\(5 phases\\)\" --files .planning/ROADMAP.md .planning/STATE.md .planning/REQUIREMENTS.md)",
+      "Skill(gsd:plan-phase)",
+      "Bash(node \"./.claude/get-shit-done/bin/gsd-tools.cjs\" commit \"docs\\(01\\): update plans for Docker Compose dev environment\" --files .planning/phases/01-foundation/01-01-PLAN.md .planning/phases/01-foundation/01-02-PLAN.md .planning/phases/01-foundation/01-03-PLAN.md)",
+      "Bash(ls /d/LabFlash/.env* 2>/dev/null; ls /d/LabFlash/docker-compose*.yml 2>/dev/null)",
+      "Bash(node \"./.claude/get-shit-done/bin/gsd-tools.cjs\" state advance-plan 2>&1)",
+      "Bash(node \"./.claude/get-shit-done/bin/gsd-tools.cjs\" state update-progress 2>&1 && node \"./.claude/get-shit-done/bin/gsd-tools.cjs\" state record-metric --phase \"02-core-crud\" --plan \"03\" --duration \"20\" --tasks \"3\" --files \"4\" 2>&1)",
+      "Bash(node \"./.claude/get-shit-done/bin/gsd-tools.cjs\" state add-decision --phase \"02-core-crud\" --summary \"requirePendingOrder shared helper across all three Server Actions — single status guard, no duplication\" 2>&1 && node \"./.claude/get-shit-done/bin/gsd-tools.cjs\" state add-decision --phase \"02-core-crud\" --summary \"Phase 2 PDF upload stores pending-upload/{filename} placeholder only — Supabase Storage deferred to Phase 3\" 2>&1)",
+      "Bash(node \"./.claude/get-shit-done/bin/gsd-tools.cjs\" state record-session --stopped-at \"Completed 02-core-crud/02-03-PLAN.md\" 2>&1)",
+      "Bash(node \"./.claude/get-shit-done/bin/gsd-tools.cjs\" roadmap update-plan-progress 2 2>&1)",
+      "Bash(node \"./.claude/get-shit-done/bin/gsd-tools.cjs\" requirements mark-complete ORD-04 ORD-05 ORD-06 2>&1)",
+      "Bash(node \"./.claude/get-shit-done/bin/gsd-tools.cjs\" commit \"docs\\(phase-02\\): complete phase execution\" --files .planning/ROADMAP.md .planning/STATE.md .planning/REQUIREMENTS.md .planning/phases/02-core-crud/02-VERIFICATION.md)",
+      "WebSearch",
+      "Bash(docker exec labflash-app-1 npm install --save-dev @types/qrcode 2>&1 | tail -5)",
+      "Bash(docker exec labflash-app-1 npm list jest ts-jest 2>&1 | head -10)",
+      "Bash(node \"./.claude/get-shit-done/bin/gsd-tools.cjs\" requirements mark-complete DEL-01 DEL-02 DEL-03 DEL-04 DEL-05 PORTAL-01 PORTAL-02 PORTAL-03 PORTAL-04 PORTAL-05 PORTAL-06 INFRA-06 INFRA-07 2>&1)",
+      "Bash(node \"./.claude/get-shit-done/bin/gsd-tools.cjs\" help 2>&1 | head -40)"
+    ]
+  }
+}
