@@ -8,6 +8,8 @@
 
 # testing
 /coverage
+test/
+*.test*
 
 # next.js
 /.next/
@@ -37,3 +39,7 @@ next-env.d.ts
 
 # drizzle
 drizzle/
+
+# gsd
+gsd/
+gsd*
