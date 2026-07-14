@@ -40,6 +40,13 @@ next-env.d.ts
 # drizzle
 drizzle/
 
-# gsd
-gsd/
-gsd*
+# gsd (installed/managed by get-shit-done — reinstall with /gsd:update)
+.claude/agents/gsd-*
+.claude/commands/gsd/
+.claude/get-shit-done/
+.claude/hooks/gsd-*
+.claude/gsd-*
+.claude/.gsd-profile
+.claude/package.json
+.claude/cache/
+gsd-local-patches/
