@@ -9,28 +9,17 @@ interface PageProps {
   searchParams: Promise<{ estado?: string }>;
 }
 
-type StatusBadgeProps = {
-  status: "pending" | "validated" | "delivered";
+const STATUS_BADGE: Record<"pending" | "validated" | "delivered", { label: string; className: string }> = {
+  pending: { label: "Pendiente", className: "bg-amber-100 text-amber-800" },
+  validated: { label: "Validado", className: "bg-green-100 text-green-800" },
+  delivered: { label: "Entregado", className: "bg-blue-100 text-blue-800" },
 };
 
-function StatusBadge({ status }: StatusBadgeProps) {
-  if (status === "pending") {
-    return (
-      <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-amber-100 text-amber-800">
-        Pendiente
-      </span>
-    );
-  }
-  if (status === "validated") {
-    return (
-      <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800">
-        Validado
-      </span>
-    );
-  }
+function StatusBadge({ status }: { status: keyof typeof STATUS_BADGE }) {
+  const { label, className } = STATUS_BADGE[status];
   return (
-    <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800">
-      Entregado
+    <span className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${className}`}>
+      {label}
     </span>
   );
 }

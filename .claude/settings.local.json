@@ -20,7 +20,20 @@
       "Bash(docker exec labflash-app-1 npm install --save-dev @types/qrcode 2>&1 | tail -5)",
       "Bash(docker exec labflash-app-1 npm list jest ts-jest 2>&1 | head -10)",
       "Bash(node \"./.claude/get-shit-done/bin/gsd-tools.cjs\" requirements mark-complete DEL-01 DEL-02 DEL-03 DEL-04 DEL-05 PORTAL-01 PORTAL-02 PORTAL-03 PORTAL-04 PORTAL-05 PORTAL-06 INFRA-06 INFRA-07 2>&1)",
-      "Bash(node \"./.claude/get-shit-done/bin/gsd-tools.cjs\" help 2>&1 | head -40)"
+      "Bash(node \"./.claude/get-shit-done/bin/gsd-tools.cjs\" help 2>&1 | head -40)",
+      "Bash(rm src/components/ui/form.tsx src/components/ui/sonner.tsx src/components/ui/separator.tsx)",
+      "Bash(git rm *)",
+      "Bash(rm Screenshots.pptx)",
+      "Bash(npm uninstall *)",
+      "Bash(sudo -n chown ubuntu:ubuntu /d/LabFlash/package-lock.json)",
+      "Bash(cp package-lock.json /tmp/plock.bak)",
+      "Bash(rm -f package-lock.json)",
+      "Bash(cp /tmp/plock.bak package-lock.json)",
+      "Bash(npx tsc *)",
+      "Bash(echo \"tsc exit: $?\")",
+      "Bash(npm ci *)",
+      "Bash(npm test *)",
+      "Bash(npm i *)"
     ]
   }
 }

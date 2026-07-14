@@ -33,6 +33,12 @@ const STATUS_ORDINAL: Record<string, number> = {
   failed: -1, pending: 0, sent: 1, delivered: 2, read: 3,
 };
 
+// SQL CASE arms derived from STATUS_ORDINAL — single source of truth.
+// sql.raw is safe here: values come from the compile-time const above, never from input.
+const ORDINAL_CASE_WHENS = Object.entries(STATUS_ORDINAL)
+  .map(([status, ordinal]) => `WHEN '${status}' THEN ${ordinal}`)
+  .join(" ");
+
 async function updateNotificationStatus(wamid: string, newStatus: string) {
   const newOrdinal = STATUS_ORDINAL[newStatus] ?? 0;
   // Only update if incoming status is higher ordinal than current
@@ -49,13 +55,7 @@ async function updateNotificationStatus(wamid: string, newStatus: string) {
       .set({ status: newStatus as "sent" | "delivered" | "read", updatedAt: new Date() })
       .where(
         sql`${notifications.whatsappMessageId} = ${wamid}
-          AND CASE ${notifications.status}
-            WHEN 'pending' THEN 0
-            WHEN 'sent' THEN 1
-            WHEN 'delivered' THEN 2
-            WHEN 'read' THEN 3
-            ELSE -1
-          END < ${newOrdinal}`
+          AND CASE ${notifications.status} ${sql.raw(ORDINAL_CASE_WHENS)} ELSE -1 END < ${newOrdinal}`
       );
   }
 }

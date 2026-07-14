@@ -18,7 +18,7 @@ jest.mock("@/lib/db/schema", () => ({
 
 jest.mock("drizzle-orm", () => ({
   eq: jest.fn(),
-  sql: jest.fn(),
+  sql: Object.assign(jest.fn(), { raw: jest.fn() }),
 }));
 
 const APP_SECRET = "test-app-secret";

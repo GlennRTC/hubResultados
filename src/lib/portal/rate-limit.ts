@@ -1,11 +1,4 @@
-import { createClient } from "@supabase/supabase-js";
-
-function getAdminClient() {
-  return createClient(
-    process.env.NEXT_PUBLIC_SUPABASE_URL!,
-    process.env.SUPABASE_SERVICE_ROLE_KEY!
-  );
-}
+import { getAdminClient } from "@/lib/supabase/admin";
 
 const MAX_ATTEMPTS = 5;
 const WINDOW_MS = 60 * 60 * 1000; // 1 hour
